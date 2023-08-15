@@ -28,6 +28,7 @@ $router->get('/user/{id}', 'App\Controllers\Users@details');
 
 
 $router->get('/departments', 'App\Controllers\Department@index');
+$router->get('/departments2', 'App\Controllers\Department@index2');
 
 // run router
 $router->run();

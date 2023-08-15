@@ -38,5 +38,18 @@ class Department {
             echo "- Employee ID: " . $row['emp_id'] . " | Name: " . $row['full_name'] . " | Position: " . $row['position'] . "<br>";
         }
     }
+
+    function index2() {
+        $templates = new \League\Plates\Engine('../templates');
+
+        $dpt = new \App\Model\Department;
+        $dept_data = $dpt->get_with_staffs();
+
+        echo $templates->render('departments', [ 
+            'title' => 'Senarai Jabatan',
+            'dept_data' => $dept_data
+        ]);        
+        
+    }
 }
 
