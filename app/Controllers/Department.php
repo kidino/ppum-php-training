@@ -40,11 +40,30 @@ class Department {
     }
 
     function index2() {
+        // Load template library
         $templates = new \League\Plates\Engine('../templates');
 
+        // fetch data from database using Model
         $dpt = new \App\Model\Department;
         $dept_data = $dpt->get_with_staffs();
 
+
+        // $dept_array = [];
+        // foreach($dept_data as $d) {
+        //     if(!isset( $dept_array[ $d['dept_id'] ] )) {
+        //         $dept_array[ $d['dept_id'] ] = $d;
+        //         $dept_array[ $d['dept_id'] ]['staffs'] = [];
+        //     }
+        //     $dept_array[ $d['dept_id'] ]['staffs'][] = $d;
+        // }
+
+        // echo "<pre>";
+        // print_r($dept_array);
+        // echo "</pre>";
+        // exit();
+
+
+        // send data to template and render HTML
         echo $templates->render('departments', [ 
             'title' => 'Senarai Jabatan',
             'dept_data' => $dept_data
