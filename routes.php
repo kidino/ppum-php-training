@@ -26,13 +26,15 @@ $router->get('/vehicle', 'App\Controllers\Home@vehicle');
 $router->get('/users', 'App\Controllers\Users@index');
 $router->get('/user/{id}', 'App\Controllers\Users@details');
 
-
+//---- API ROUTES ----
 $router->get('/departments', 'App\Controllers\Department@index');
 $router->get('/departments2', 'App\Controllers\Department@index2');
 
 
 $router->get('/student/{id}', 'App\Controllers\Student@details');
+$router->get('/courses', 'App\Controllers\Course@details');
 
+// -- ACCOUNTS ---
 $router->get('/account1', 'App\Controllers\Account@account1');
 $router->get('/account2', 'App\Controllers\Account@account2');
 $router->get('/globals', function(){

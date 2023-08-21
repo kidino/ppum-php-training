@@ -17,8 +17,11 @@ class Account {
             $stmt2->execute();
         
             // Commit the transaction
-            $db->commit();
-        
+            if($affected_account1 && $affected_account2) {
+                $db->commit();
+            } else {
+                throw new \PDOException("some account not affecteds");
+            }        
             echo "Transaction successful: Money transferred.";
         } catch (\PDOException $e) {
             // Rollback the transaction in case of error
